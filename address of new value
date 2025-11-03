@@ -1,0 +1,12 @@
+"Value of a: %d\n", a);
+    printf("Address of a: %p\n", &a);
+    printf("Value stored in pointer p (address of a): %p\n", p);
+    printf("Value pointed to by p: %d\n", *p);  // Dereferencing the pointer
+
+    // Modify the value using pointer
+    *p = 20;
+    printf("\nAfter modifying *p = 20;\n");
+    printf("New value of a: %d\n", a);
+
+    return 0;
+}
