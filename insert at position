@@ -1,0 +1,51 @@
+//insert at position
+#include<stdio.h>
+#include<stdlib.h>
+struct Node{
+    int data;
+    struct Node* next;
+};
+struct Node* head=NULL;
+void insertpos(int value,int pos){
+    struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
+    if(!newNode){
+        printf("memory allocation is failed\n");
+        return;
+    }
+    newNode->data=value;
+    if(pos == 1){
+        newNode->next=head;
+        head=newNode;
+        return;
+    }
+        struct Node* temp=head;
+        for(int i=1;i<pos-1 && temp!=NULL;i++)
+        temp=temp->next;
+        if(temp==NULL){
+            printf("position is out of range\n");
+            free(newNode);
+            return;
+        }
+        newNode->next=temp->next;
+        temp->next=newNode;
+}
+    void display(){
+        struct Node* temp=head;
+        if(temp==NULL){
+            printf("List is empty");
+            return;
+        }
+        while(temp!=NULL){
+            printf("%d -> ",temp->data);
+            temp=temp->next;
+        }
+        printf("NULL\n");
+    }
+        int main(){
+            insertpos(10,1);
+            insertpos(20,2);
+            insertpos(30,3);
+            insertpos(5,1);
+            display();
+            return 0;
+            }
