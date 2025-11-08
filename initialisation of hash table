@@ -1,0 +1,7 @@
+#include <stdio.h>
+#define SIZE 10
+int hashTable[SIZE];
+void initHashTable() {
+for(int i = 0; i < SIZE; i++)
+hashTable[i] = -1; // Empty
+}
