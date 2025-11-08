@@ -1,0 +1,20 @@
+#include<stdio.h>
+#define SIZE 10
+int hashtable[SIZE];
+
+int hash(int key, int size) {
+    return key % size;
+}
+void insert(int key,int size){
+    int index=hash(key,size);
+    int i=0;
+    
+    while(hashtable[index+i%size]!=-1){
+        i++;
+        if(i==size){
+            printf("Hast table is full\n");
+        }
+        hashtable[index+i%size]=key;
+        printf("%d is inserted at index %d\n",key,index+i%size);
+    }
+}
